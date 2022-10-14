@@ -1,0 +1,15 @@
+[package]
+name = "axum-prom"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+axum = "0.6.0-rc.2"
+futures-core = "0.3"
+http = "0.2"
+pin-project = "1"
+prometheus = "0.13"
+tower = "*"
+
+[dev-dependencies]
+tokio = { version = "1", features = ["macros", "rt-multi-thread"] }
