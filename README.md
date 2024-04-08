@@ -13,7 +13,7 @@ This crate is similar to:
 - The requests to the metrics endpoint are **not** taken into account in the exposed metrics.
   (You can change this behavior by setting the `endpoint` to `None`)
 - By default, two metrics are recorded:
-  - the number of requests (as [counter](https://prometheus.io/docs/concepts/metric_types/#counter)) 
+  - the number of requests (as [counter](https://prometheus.io/docs/concepts/metric_types/#counter))
   - the requests` durations (as [histogram](https://prometheus.io/docs/concepts/metric_types/#histogram))
 
 # Example
@@ -48,10 +48,8 @@ async fn main() {
         .layer(prometheus);
 
     // run it with hyper on localhost:3000
-    axum::Server::bind(&"0.0.0.0:3000".parse().unwrap())
-        .serve(app.into_make_service())
-        .await
-        .unwrap();
+    let listener = tokio::net::TcpListener::bind("0.0.0.0:3000").await.unwrap();
+    axum::serve(listener, app).await.unwrap();
 }
 ```
 

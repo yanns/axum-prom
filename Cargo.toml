@@ -4,9 +4,9 @@ version = "0.1.0"
 edition = "2021"
 
 [dependencies]
-axum = "0.6.0-rc.2"
+axum = "0.7"
 futures-core = "0.3"
-http = "0.2"
+http = "1"
 pin-project = "1"
 prometheus = "0.13"
 tower = "*"
