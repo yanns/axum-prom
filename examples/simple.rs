@@ -14,7 +14,7 @@ async fn main() {
 
     let app = Router::new()
         .route("/", get(|| async { "Hello, World!" }))
-        .route("/hello/:name", get(hello))
+        .route("/hello/{name}", get(hello))
         .route(
             axum_prom::DEFAULT_ENDPOINT,
             get(|| async move { prometheus_registry.metrics() }),
